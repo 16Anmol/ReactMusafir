@@ -16,7 +16,7 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    details: ["+91 98551 48127", "+91 70099 55241"],
+    details: ["+91 90AAA", "+91 90AAA"],
     description: "Call us anytime for immediate assistance",
   },
   {
@@ -43,19 +43,19 @@ const socialLinks = [
   {
     name: "Instagram",
     icon: Instagram,
-    href: "https://www.instagram.com/thetriptales.in",
+    href: "https://www.instagram.com/anmol_.16/",
     description: "Follow us for travel inspiration",
   },
   {
     name: "Facebook",
     icon: Facebook,
-    href: "https://www.facebook.com/royalroutes.in/?paipv=0&eav=AfZE6TWKeEiX38VEgE4t7KW-eMKFUgMT6gQShl_PBQ45bjeerV2G8Tq1IfDA9X_lj_k&_rdr",
+    href: "https://www.instagram.com/himanshu._dhir/",
     description: "Join our travel community",
   },
   {
     name: "WhatsApp",
     icon: MessageCircle,
-    href: "https://chat.whatsapp.com/I7TXZAGGQP2INcOoB0QWJG",
+    href: "https://www.instagram.com/danish.goswami_40613/",
     description: "Chat with us instantly",
   },
 ]

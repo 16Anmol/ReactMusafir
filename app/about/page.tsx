@@ -11,7 +11,7 @@ const teamMembers = [
   {
     name: "Anmoldeep Singh",
     role: "Technical Lead",
-    image: "/PROFILEPIC.jpg",
+    image: "/profilepic.jpg",
     instagram: "https://www.instagram.com/anmol_.16/?hl=en",
     description: "Passionate about creating unforgettable travel experiences",
   },
