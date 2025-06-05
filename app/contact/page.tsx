@@ -67,32 +67,45 @@ export default function ContactPage() {
     phone: "",
     subject: "",
     message: "",
-  })
-
+  });
+const [statusMessage, setStatusMessage] = useState<string | null>(null);
+const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target
-    setFormData((prev) => ({ ...prev, [name]: value }))
-  }
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
+  setStatusMessage(null);
+  setErrorMessage(null);
 
-  const response = await fetch('https://script.google.com/macros/s/AKfycbxxkPCLtrau53cVBIz-eW7eIpiflA890LhD49EU59RNyTYkVhQ_MW3WN1D_XEUWPRKW2w/exec', {
-    method: 'POST',
-    body: JSON.stringify(formData),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    
-  });
+  try {
+    const response = await fetch("YOUR_GOOGLE_SCRIPT_URL", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
 
-  if (response.ok) {
-    alert('Your message has been sent!');
-    setFormData({ name: '', phone: '', email: '', subject: '', message: '' });
-  } else {
-    alert('Something went wrong. Please try again.');
+    if (response.ok) {
+      setStatusMessage("Your message has been sent successfully!");
+      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
+
+      setTimeout(() => setStatusMessage(null), 4000); // auto-dismiss after 4 seconds
+    } else {
+      setErrorMessage("Something went wrong. Please try again.");
+    }
+  } catch (error) {
+    if (error instanceof Error) {
+      setErrorMessage(error.message);
+    } else {
+      setErrorMessage("Unknown error occurred.");
+    }
   }
 };
+
 
 
   const openChatbot = () => {
@@ -189,6 +202,17 @@ export default function ContactPage() {
             >
               <Card className="p-8 border-2 border-amber-200 bg-gradient-to-b from-white to-amber-50">
                 <h3 className="text-3xl font-bold text-amber-900 mb-6">Send us a Message</h3>
+                {statusMessage && (
+  <div className="mb-4 p-4 bg-green-100 text-green-800 rounded border border-green-300">
+    {statusMessage}
+  </div>
+)}
+{errorMessage && (
+  <div className="mb-4 p-4 bg-red-100 text-red-800 rounded border border-red-300">
+    {errorMessage}
+  </div>
+)}
+
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
