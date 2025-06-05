@@ -74,20 +74,25 @@ export default function ContactPage() {
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    // Handle form submission here
-    console.log("Form submitted:", formData)
-    // You can integrate with your backend API here
-    alert("Thank you for your message! We&apos;ll get back to you soon.")
-    setFormData({
-      name: "",
-      email: "",
-      phone: "",
-      subject: "",
-      message: "",
-    })
+  const handleSubmit = async (e: React.FormEvent) => {
+  e.preventDefault();
+
+  const response = await fetch('https://script.google.com/macros/s/AKfycbxxkPCLtrau53cVBIz-eW7eIpiflA890LhD49EU59RNyTYkVhQ_MW3WN1D_XEUWPRKW2w/exec', {
+    method: 'POST',
+    body: JSON.stringify(formData),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  if (response.ok) {
+    alert('Your message has been sent!');
+    setFormData({ name: '', phone: '', email: '', subject: '', message: '' });
+  } else {
+    alert('Something went wrong. Please try again.');
   }
+};
+
 
   const openChatbot = () => {
     window.open("/chatbot", "_blank")
