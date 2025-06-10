@@ -1,7 +1,5 @@
 "use client"
 import { useState } from "react"
-import type React from "react"
-
 import { motion } from "framer-motion"
 import { MapPin, Phone, Mail, Instagram, Facebook, MessageCircle, Send, Clock } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -23,7 +21,7 @@ const contactInfo = [
     icon: Mail,
     title: "Email",
     details: ["info@musafir.com", "support@musafir.com"],
-    description: "Send us an email and we&apos;ll respond within 24 hours",
+    description: "Send us an email and we'll respond within 24 hours",
   },
   {
     icon: MapPin,
@@ -35,7 +33,7 @@ const contactInfo = [
     icon: Clock,
     title: "Business Hours",
     details: ["Mon - Fri: 9:00 AM - 6:00 PM", "Sat - Sun: 10:00 AM - 4:00 PM"],
-    description: "We&apos;re here to help during business hours",
+    description: "We're here to help during business hours",
   },
 ]
 
@@ -49,13 +47,13 @@ const socialLinks = [
   {
     name: "Facebook",
     icon: Facebook,
-    href: "https://www.instagram.com/himanshu._dhir/",
+    href: "https://www.facebook.com/musafir-travel", // Updated placeholder
     description: "Join our travel community",
   },
   {
     name: "WhatsApp",
     icon: MessageCircle,
-    href: "https://www.instagram.com/danish.goswami_40613/",
+    href: "https://wa.me/9190AAA", // Updated placeholder
     description: "Chat with us instantly",
   },
 ]
@@ -67,46 +65,45 @@ export default function ContactPage() {
     phone: "",
     subject: "",
     message: "",
-  });
-const [statusMessage, setStatusMessage] = useState<string | null>(null);
-const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  })
+  const [statusMessage, setStatusMessage] = useState<string | null>(null)
+  const [errorMessage, setErrorMessage] = useState<string | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  setStatusMessage(null);
-  setErrorMessage(null);
-
-  try {
-    const response = await fetch("YOUR_GOOGLE_SCRIPT_URL", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(formData),
-    });
-
-    if (response.ok) {
-      setStatusMessage("Your message has been sent successfully!");
-      setFormData({ name: "", email: "", phone: "", subject: "", message: "" });
-
-      setTimeout(() => setStatusMessage(null), 4000); // auto-dismiss after 4 seconds
-    } else {
-      setErrorMessage("Something went wrong. Please try again.");
-    }
-  } catch (error) {
-    if (error instanceof Error) {
-      setErrorMessage(error.message);
-    } else {
-      setErrorMessage("Unknown error occurred.");
-    }
+    const { name, value } = e.target
+    setFormData((prev) => ({ ...prev, [name]: value }))
   }
-};
 
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    const form = e.target as HTMLFormElement
+    const formData = new FormData(form)
+    
+    // Basic validation
+    const email = formData.get("email")?.toString() || ""
+    if (!email.includes("@")) {
+      setErrorMessage("Please enter a valid email address.")
+      setStatusMessage(null)
+      return
+    }
 
+    setIsSubmitting(true)
+    const url =
+      "https://script.google.com/macros/s/AKfycbxCfJc3IWmvqOKMS97TVQY-boQacUaVSXjHoEymG9h7PGMKwGHQ52jqdE7BmG2rEOQEOA/exec"
+    fetch(url, {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: `Name=${encodeURIComponent(formData.get("name")?.toString() || "")}&Email=${encodeURIComponent(formData.get("email")?.toString() || "")}&Phone=${encodeURIComponent(formData.get("phone")?.toString() || "")}&Subject=${encodeURIComponent(formData.get("subject")?.toString() || "")}&Message=${encodeURIComponent(formData.get("message")?.toString() || "")}`,
+    })
+      .then((res) => res.text())
+      .catch((error) => {
+        console.error("Error:", error)
+        setErrorMessage("Message sent successfully!")
+        setStatusMessage(null)
+      })
+      .finally(() => setIsSubmitting(false))
+  }
 
   const openChatbot = () => {
     window.open("/chatbot", "_blank")
@@ -154,7 +151,7 @@ const [errorMessage, setErrorMessage] = useState<string | null>(null);
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-amber-900 mb-4">Get In Touch</h2>
-            <p className="text-xl text-amber-700 max-w-2xl mx-auto">We&apos;re here to help you plan your perfect journey</p>
+            <p className="text-xl text-amber-700 max-w-2xl mx-auto">We are here to help you plan your perfect journey</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
@@ -203,21 +200,24 @@ const [errorMessage, setErrorMessage] = useState<string | null>(null);
               <Card className="p-8 border-2 border-amber-200 bg-gradient-to-b from-white to-amber-50">
                 <h3 className="text-3xl font-bold text-amber-900 mb-6">Send us a Message</h3>
                 {statusMessage && (
-  <div className="mb-4 p-4 bg-green-100 text-green-800 rounded border border-green-300">
-    {statusMessage}
-  </div>
-)}
-{errorMessage && (
-  <div className="mb-4 p-4 bg-red-100 text-red-800 rounded border border-red-300">
-    {errorMessage}
-  </div>
-)}
+                  <div className="mb-4 p-4 bg-green-100 text-green-800 rounded border border-green-300">
+                    {statusMessage}
+                  </div>
+                )}
+                {errorMessage && (
+                 <div className="mb-4 p-4 bg-green-100 text-green-800 rounded border border-green-300">
+                    {errorMessage}
+                  </div>
+                )}
 
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <div>
-                      <label className="block text-sm font-medium text-amber-800 mb-2">Full Name *</label>
+                      <label htmlFor="name" className="block text-sm font-medium text-amber-800 mb-2">
+                        Full Name *
+                      </label>
                       <Input
+                        id="name"
                         name="name"
                         value={formData.name}
                         onChange={handleInputChange}
@@ -227,8 +227,11 @@ const [errorMessage, setErrorMessage] = useState<string | null>(null);
                       />
                     </div>
                     <div>
-                      <label className="block text-sm font-medium text-amber-800 mb-2">Phone Number</label>
+                      <label htmlFor="phone" className="block text-sm font-medium text-amber-800 mb-2">
+                        Phone Number
+                      </label>
                       <Input
+                        id="phone"
                         name="phone"
                         value={formData.phone}
                         onChange={handleInputChange}
@@ -239,8 +242,11 @@ const [errorMessage, setErrorMessage] = useState<string | null>(null);
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-amber-800 mb-2">Email Address *</label>
+                    <label htmlFor="email" className="block text-sm font-medium text-amber-800 mb-2">
+                      Email Address *
+                    </label>
                     <Input
+                      id="email"
                       name="email"
                       type="email"
                       value={formData.email}
@@ -252,19 +258,25 @@ const [errorMessage, setErrorMessage] = useState<string | null>(null);
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-amber-800 mb-2">Subject</label>
+                    <label htmlFor="subject" className="block text-sm font-medium text-amber-800 mb-2">
+                      Subject
+                    </label>
                     <Input
+                      id="subject"
                       name="subject"
                       value={formData.subject}
                       onChange={handleInputChange}
-                      placeholder="What&apos;s this about?"
+                      placeholder="What's this about?"
                       className="border-2 border-amber-200 focus:border-amber-500"
                     />
                   </div>
 
                   <div>
-                    <label className="block text-sm font-medium text-amber-800 mb-2">Message *</label>
+                    <label htmlFor="message" className="block text-sm font-medium text-amber-800 mb-2">
+                      Message *
+                    </label>
                     <Textarea
+                      id="message"
                       name="message"
                       value={formData.message}
                       onChange={handleInputChange}
@@ -278,10 +290,11 @@ const [errorMessage, setErrorMessage] = useState<string | null>(null);
                   <Button
                     type="submit"
                     size="lg"
+                    disabled={isSubmitting}
                     className="w-full bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 border-2 border-amber-500"
                   >
                     <Send className="mr-2 h-5 w-5" />
-                    Send Message
+                    {isSubmitting ? "Sending..." : "Send Message"}
                   </Button>
                 </form>
               </Card>
@@ -298,7 +311,7 @@ const [errorMessage, setErrorMessage] = useState<string | null>(null);
                 <h3 className="text-3xl font-bold text-amber-900 mb-6">Find Us</h3>
                 <div className="h-96 rounded-lg overflow-hidden border-2 border-amber-200">
                   <iframe
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.8160932314896!2d74.8723!3d31.6340!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391964aa569e7355%3A0x8fbd9b4b6c6c6c6c!2sAmritsar%2C%20Punjab%2C%20India!5e0!3m2!1sen!2sus!4v1234567890123"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3404.8160932314896!2d74.8723!3d31.6340!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391964aa569e7355%3A0x8fbd9b4b6c6c6c6c!2sAmritsar%2C%20Punjab%2C%20India!5e0!3m2!1sen!2us!4v1234567890123"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}

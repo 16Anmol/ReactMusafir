@@ -11,14 +11,14 @@ const teamMembers = [
   {
     name: "Anmoldeep Singh",
     role: "Technical Lead",
-    image: "/profilepic.jpg",
+    image: "/profilepic1.jpg",
     instagram: "https://www.instagram.com/anmol_.16/?hl=en",
     description: "Passionate about creating unforgettable travel experiences",
   },
   {
     name: "Himanshu Dhir",
     role: "Founder & CEO",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/himanshu.jpg",
     instagram: "https://www.instagram.com/himanshu._dhir/?hl=en",
     description: "Creative mind behind our brand and outreach",
   },
