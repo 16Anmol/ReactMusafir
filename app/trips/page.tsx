@@ -496,9 +496,9 @@ export default function TripsPage() {
                           </div>
                           <span className="text-xs text-amber-600">per person</span>
                         </div>
-                        <Link href={`/trips/${trip.id}`}>
+                        <Link href={`https://docs.google.com/forms/d/e/1FAIpQLSfuaVHKTPrVyDdzykMZVL6jTPD1xdgiMDmlSRoq2sGi1mcACg/viewform?usp=sharing&ouid=100832964902746238927`}>
                           <Button className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white">
-                            View Details
+                            Register
                           </Button>
                         </Link>
                       </div>

@@ -13,7 +13,7 @@ const teamMembers = [
     role: "Technical Lead",
     image: "/profilepic1.jpg",
     instagram: "https://www.instagram.com/anmol_.16/?hl=en",
-    description: "Passionate about creating unforgettable travel experiences",
+    description: "Building the future of travel technology",
   },
   {
     name: "Himanshu Dhir",
@@ -25,9 +25,9 @@ const teamMembers = [
   {
     name: "Danish Goswami",
     role: "Technology Lead",
-    image: "/placeholder.svg?height=300&width=300",
+    image: "/danish.jpeg",
     instagram: "https://www.instagram.com/danish.goswami_40613/following/",
-    description: "Building the future of travel technology",
+    description: "Passionate about creating unforgettable travel experiences",
   },
 ]
 
