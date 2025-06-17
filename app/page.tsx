@@ -65,21 +65,21 @@ const featuredDestinations = [
 const upcomingEvents = [
   {
     id: 1,
-    title: "Technovista 2024",
-    date: "March 15-17, 2024",
+    title: "Technovista 2025",
+    date: "June 18-19, 2025",
     location: "GNDU Campus",
     image: "/card_3.jpg?height=200&width=200",
     description: "Code, collaborate, create, innovate.",
-    registerLink: "",
+    registerLink: "https://docs.google.com/forms/d/e/1FAIpQLSfcejiwAc-IPRyYM89LIDoXe-ZCTj8gWvoHj1KYLHaxukx14w/viewform?usp=sharing&ouid=100832964902746238927",
   },
   {
     id: 2,
     title: "Cultural Fest",
-    date: "April 20-22, 2024",
+    date: "June 20-22, 2025",
     location: "Khalsa College",
     image: "/card_4.jpg",
     description: "Music, energy, crowd, memories.",
-    registerLink: "",
+    registerLink: "https://docs.google.com/forms/d/e/1FAIpQLSfcejiwAc-IPRyYM89LIDoXe-ZCTj8gWvoHj1KYLHaxukx14w/viewform?usp=sharing&ouid=100832964902746238927",
   },
 ]
 
@@ -102,7 +102,7 @@ const testimonials = [
     name: "Anjali Patel",
     location: "Bangalore",
     rating: 5,
-    comment: "The Kedarnath journey was life-changing. Thank you Musafir!",
+    comment: "The Kedarnath journey was life-changing. Thank you Musaffir!",
     image: "/anjali.jpg",
   },
 ]
@@ -305,7 +305,7 @@ export default function HomePage() {
                         </div>
                         <span className="text-xs text-amber-600">per person</span>
                       </div>
-                      <Link href={`/trips/${destination.id}`}>
+                      <Link href="https://docs.google.com/forms/d/e/1FAIpQLSfuaVHKTPrVyDdzykMZVL6jTPD1xdgiMDmlSRoq2sGi1mcACg/viewform?usp=sharing&ouid=100832964902746238927" target="_blank" rel="noopener noreferrer">
                         <Button
                           size="sm"
                           className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white"
@@ -440,28 +440,7 @@ export default function HomePage() {
               <p className="text-xl text-amber-700 mb-8">Explore more; life is an adventure.</p>
 
               <div className="space-y-4">
-                <a href="https://calendar-gndu.vercel.app/" target="_blank" rel="noopener noreferrer" className="block">
-                  <Button
-                    variant="outline"
-                    className="w-full lg:w-auto border-2 border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white"
-                  >
-                    • For G.N.D.U ➜
-                  </Button>
-                </a>
-
-                <a
-                  href="https://calendar-1-khalsa-college.vercel.app/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block"
-                >
-                  <Button
-                    variant="outline"
-                    className="w-full lg:w-auto border-2 border-amber-600 text-amber-600 hover:bg-amber-600 hover:text-white"
-                  >
-                    • For Khalsa College ➜
-                  </Button>
-                </a>
+                
               </div>
             </div>
           </motion.div>

@@ -1,5 +1,6 @@
 "use client"
 import { motion } from "framer-motion"
+import { useState } from "react"
 import { MapPin, Phone, Mail, Facebook, Instagram, Twitter, Youtube, Plane } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -40,7 +41,35 @@ const socialLinks = [
 ]
 
 export default function Footer() {
+  const [email, setEmail] = useState('')
+const [loading, setLoading] = useState(false)
+
+const handleSubscribe = async () => {
+  if (!email) return alert("Please enter an email.")
+  setLoading(true)
+  try {
+    const res = await fetch("https://script.google.com/macros/s/AKfycbzsMFkn_0U2xNrHj3CUGdGYKo0-eoy-498GPy4IOm9OaLn5lv56QrjHidEjmF6Gs7XIug/exec", {
+      method: "POST",
+      body: new URLSearchParams({ email }),
+    })
+
+    const result = await res.json()
+    if (result.result === "success") {
+      alert("Subscribed successfully!")
+      setEmail('')
+    } else {
+      alert("Something went wrong. Try again.")
+    }
+  } catch (error) {
+    console.error("Subscribe error:", error)
+    alert("Subscription failed.")
+  } finally {
+    setLoading(false)
+  }
+}
+
   return (
+    
     <footer className="bg-gradient-to-br from-amber-900 via-orange-900 to-yellow-900 text-white">
       {/* Newsletter Section */}
       <div className="border-b border-amber-700">
@@ -52,18 +81,25 @@ export default function Footer() {
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
           >
-            <h3 className="text-3xl font-bold mb-4">Stay Updated with Musafir</h3>
+            <h3 className="text-3xl font-bold mb-4">Stay Updated with Musaffir</h3>
             <p className="text-amber-200 mb-6">
               Subscribe to our newsletter and get the latest travel deals and destination guides
             </p>
             <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <Input
-                placeholder="Enter your email"
-                className="bg-amber-800/50 border-amber-600 text-white placeholder-amber-300 focus:border-amber-400"
-              />
-              <Button className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 whitespace-nowrap border-2 border-amber-500">
-                Subscribe
-              </Button>
+             <Input
+  value={email}
+  onChange={(e) => setEmail(e.target.value)}
+  placeholder="Enter your email"
+  className="bg-amber-800/50 border-amber-600 text-white placeholder-amber-300 focus:border-amber-400"
+/>
+<Button
+  onClick={handleSubscribe}
+  disabled={loading}
+  className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 whitespace-nowrap border-2 border-amber-500"
+>
+  {loading ? "Subscribing..." : "Subscribe"}
+</Button>
+
             </div>
           </motion.div>
         </div>
@@ -82,7 +118,7 @@ export default function Footer() {
             >
               <div className="flex items-center space-x-2 mb-6">
                 <Plane className="h-10 w-10 text-amber-400" />
-                <span className="text-2xl font-bold">Musafir</span>
+                <span className="text-2xl font-bold">Musaffir</span>
               </div>
               <p className="text-amber-200 mb-6 leading-relaxed">
                 Your trusted travel companion for unforgettable journeys. We create experiences that connect you with
@@ -95,11 +131,11 @@ export default function Footer() {
                 </div>
                 <div className="flex items-center text-amber-200">
                   <Phone className="h-5 w-5 mr-3 text-amber-400" />
-                  <span>+9000xxxx</span>
+                  <span>+91 79 7373 2526</span>
                 </div>
                 <div className="flex items-center text-amber-200">
                   <Mail className="h-5 w-5 mr-3 text-amber-400" />
-                  <span>info@musafir.com</span>
+                  <span>musafir30824@gmail.com</span>
                 </div>
               </div>
             </motion.div>
@@ -170,7 +206,7 @@ export default function Footer() {
       <div className="border-t border-amber-700">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between text-sm text-amber-200">
-            <p>&copy; 2024 Musafir.com, Inc. All rights reserved.</p>
+            <p>&copy; 2024 Musaffir.com, Inc. All rights reserved.</p>
             <p>Made with ❤️ for travelers worldwide</p>
           </div>
         </div>

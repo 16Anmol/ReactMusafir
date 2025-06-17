@@ -6,6 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet"
 import { Input } from "@/components/ui/input"
 import Link from "next/link"
+import Image from 'next/image';
 
 const navigation = [
   { name: "Home", href: "/" },
@@ -47,12 +48,18 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <div className="relative h-10 w-10">
-              <Plane className={`h-6 w-6 ${isScrolled ? "text-amber-600" : "text-white"}`} />
-            </div>
-            <span className={`text-xl font-bold ${isScrolled ? "text-amber-900" : "text-white"}`}>Musafir</span>
-          </Link>
-
+  <div className="relative h-10 w-10">
+    <Image
+      src="/musafir-logo.jpg"
+      alt="Musafir Logo"
+      fill
+      className="object-contain"
+    />
+  </div>
+  <span className={`text-xl font-bold ${isScrolled ? "text-amber-900" : "text-white"}`}>
+    Musaffir
+  </span>
+</Link>
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             {navigation.map((item) => (
@@ -122,7 +129,7 @@ export default function Header() {
                 <div className="flex items-center justify-between mb-8">
                   <div className="flex items-center space-x-2">
                     <Plane className="h-6 w-6 text-amber-600" />
-                    <span className="text-xl font-bold text-amber-900">Musafir</span>
+                    <span className="text-xl font-bold text-amber-900">Musaffir</span>
                   </div>
                 </div>
 
@@ -168,7 +175,7 @@ export default function Header() {
                     </div>
                     <div className="flex items-center justify-center">
                       <Mail className="h-4 w-4 mr-2" />
-                      info@musafir.com
+                      musafir30824@gmail.com
                     </div>
                   </div>
                 </div>

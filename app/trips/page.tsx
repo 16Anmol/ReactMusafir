@@ -126,7 +126,7 @@ const trips = [
 ]
 
 const categories = ["All", "Adventure", "Nature", "Spiritual", "Cultural"]
-const difficulties = ["All", "Easy", "Moderate", "Challenging"]
+
 const durations = ["All", "1-3 Days", "4-6 Days", "7+ Days"]
 
 export default function TripsPage() {
@@ -200,7 +200,7 @@ export default function TripsPage() {
       {/* Hero Section */}
       <section className="relative pt-20 pb-12 overflow-hidden">
         <div className="absolute inset-0 z-0">
-          <Image src="/placeholder.svg?height=600&width=1920" alt="Trips Hero" fill className="object-cover" />
+          <Image src="/https://www.colorpalettestore.com/cdn/shop/products/744D40.png?v=1614624668" alt="" fill className="object-cover" />
           <div className="absolute inset-0 bg-gradient-to-r from-amber-900/80 to-orange-900/60" />
         </div>
 
@@ -264,18 +264,7 @@ export default function TripsPage() {
                 </SelectContent>
               </Select>
 
-              <Select value={selectedDifficulty} onValueChange={setSelectedDifficulty}>
-                <SelectTrigger className="w-40 border-2 border-amber-200 focus:border-amber-500">
-                  <SelectValue placeholder="Difficulty" />
-                </SelectTrigger>
-                <SelectContent>
-                  {difficulties.map((difficulty) => (
-                    <SelectItem key={difficulty} value={difficulty}>
-                      {difficulty}
-                    </SelectItem>
-                  ))}
-                </SelectContent>
-              </Select>
+              
 
               <Select value={selectedDuration} onValueChange={setSelectedDuration}>
                 <SelectTrigger className="w-40 border-2 border-amber-200 focus:border-amber-500">

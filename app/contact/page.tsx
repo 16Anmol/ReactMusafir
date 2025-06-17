@@ -14,13 +14,13 @@ const contactInfo = [
   {
     icon: Phone,
     title: "Phone",
-    details: ["+91 90AAA", "+91 90AAA"],
+    details: ["+91 79 7373 2526", "+91 8146547253"],
     description: "Call us anytime for immediate assistance",
   },
   {
     icon: Mail,
     title: "Email",
-    details: ["info@musafir.com", "support@musafir.com"],
+    details: ["musafir30824@gmail.com"],
     description: "Send us an email and we'll respond within 24 hours",
   },
   {
@@ -47,13 +47,13 @@ const socialLinks = [
   {
     name: "Facebook",
     icon: Facebook,
-    href: "https://www.facebook.com/musafir-travel", // Updated placeholder
+    href: "https://www.instagram.com/anmol_.16/", // Updated placeholder
     description: "Join our travel community",
   },
   {
     name: "WhatsApp",
     icon: MessageCircle,
-    href: "https://wa.me/9190AAA", // Updated placeholder
+    href: "https://www.instagram.com/anmol_.16/", // Updated placeholder
     description: "Chat with us instantly",
   },
 ]
@@ -105,9 +105,9 @@ export default function ContactPage() {
       .finally(() => setIsSubmitting(false))
   }
 
-  const openChatbot = () => {
+ /* const openChatbot = () => {
     window.open("/chatbot", "_blank")
-  }
+  }*/
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-amber-50 via-orange-50 to-yellow-50">
@@ -318,14 +318,14 @@ export default function ContactPage() {
                     allowFullScreen
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
-                    title="Musafir Location - Amritsar, Punjab"
+                    title="Musaffir Location - Amritsar, Punjab"
                   />
                 </div>
                 <div className="mt-6 p-4 bg-amber-100 rounded-lg">
                   <div className="flex items-center text-amber-800">
                     <MapPin className="h-5 w-5 mr-2 text-amber-600" />
                     <div>
-                      <p className="font-medium">Musafir Travel Office</p>
+                      <p className="font-medium">Musaffir Travel Office</p>
                       <p className="text-sm">Amritsar, Punjab, India</p>
                     </div>
                   </div>
@@ -380,7 +380,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Chat with Us */}
+      {/* Chat with Us 
       <section className="py-20 px-4 bg-gradient-to-b from-amber-50 to-orange-50">
         <div className="max-w-4xl mx-auto text-center">
           <motion.div
@@ -403,7 +403,7 @@ export default function ContactPage() {
             </Button>
           </motion.div>
         </div>
-      </section>
+      </section> */}
 
       <Footer />
     </div>

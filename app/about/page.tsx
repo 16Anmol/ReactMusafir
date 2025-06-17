@@ -54,12 +54,12 @@ const values = [
   },
 ]
 
-const stats = [
+/*const stats = [
   { number: "1000+", label: "Happy Travelers" },
   { number: "50+", label: "Destinations" },
   { number: "100+", label: "Successful Trips" },
   { number: "4.9", label: "Average Rating" },
-]
+]*/
 
 export default function AboutPage() {
   return (
@@ -80,7 +80,7 @@ export default function AboutPage() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
           >
-            About Musafir
+            About Musaffir
           </motion.h1>
           <motion.p
             className="text-xl md:text-2xl mb-8 text-amber-100 max-w-3xl mx-auto"
@@ -107,7 +107,7 @@ export default function AboutPage() {
             <h2 className="text-4xl md:text-5xl font-bold text-amber-900 mb-8">Our Story</h2>
             <div className="prose prose-lg mx-auto text-amber-800">
               <p className="text-lg leading-relaxed mb-6">
-                Welcome to Musafir! We are a dedicated team of three—Anmoldeep Singh, Danish Goswami, and Himanshu
+                Welcome to Musaffir! We are a dedicated team of three—Anmoldeep Singh, Danish Goswami, and Himanshu
                 Dhir—passionate about helping students stay connected with the vibrant campus life. Our website is
                 designed to provide students with easy access to information about various events happening in
                 universities and colleges.
@@ -127,7 +127,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Stats Section */}
+  {/* Stats Section 
       <section className="py-16 bg-gradient-to-r from-amber-600 to-orange-600">
         <div className="max-w-6xl mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
@@ -146,7 +146,7 @@ export default function AboutPage() {
             ))}
           </div>
         </div>
-      </section>
+      </section>*/}
 
       {/* Our Values */}
       <section className="py-20 px-4">
@@ -200,7 +200,7 @@ export default function AboutPage() {
             viewport={{ once: true }}
           >
             <h2 className="text-4xl md:text-5xl font-bold text-amber-900 mb-4">Meet Our Team</h2>
-            <p className="text-xl text-amber-700 max-w-2xl mx-auto">The passionate individuals behind Musafir</p>
+            <p className="text-xl text-amber-700 max-w-2xl mx-auto">The passionate individuals behind Musaffir</p>
           </motion.div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
