@@ -34,9 +34,9 @@ const footerLinks = {
 }
 
 const socialLinks = [
-  { name: "Facebook", icon: Facebook, href: "https://www.instagram.com/himanshu._dhir/" },
-  { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/anmol_.16/" },
-  { name: "Twitter", icon: Twitter, href: "https://www.instagram.com/danish.goswami_40613/following/" },
+  { name: "Facebook", icon: Facebook, href: "https://www.facebook.com/profile.php?id=61578721408947" },
+  { name: "Instagram", icon: Instagram, href: "https://www.instagram.com/musafir30824/" },
+  { name: "Twitter", icon: Twitter, href: "https://x.com/musaffir_" },
   { name: "YouTube", icon: Youtube, href: "https://youtube.com/" },
 ]
 

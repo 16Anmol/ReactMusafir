@@ -41,13 +41,13 @@ const socialLinks = [
   {
     name: "Instagram",
     icon: Instagram,
-    href: "https://www.instagram.com/anmol_.16/",
+    href: "https://www.instagram.com/musafir30824/",
     description: "Follow us for travel inspiration",
   },
   {
     name: "Facebook",
     icon: Facebook,
-    href: "https://www.instagram.com/anmol_.16/", // Updated placeholder
+    href: "https://www.facebook.com/profile.php?id=61578721408947", // Updated placeholder
     description: "Join our travel community",
   },
   {

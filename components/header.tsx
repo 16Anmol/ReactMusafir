@@ -106,7 +106,7 @@ export default function Header() {
             </Button>
 
             {/* Sign In Button */}
-            <Link href="/auth/signin">
+          {/* <Link href="/auth/signin">
               <Button
                 size="sm"
                 className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white border-2 border-amber-500"
@@ -114,7 +114,7 @@ export default function Header() {
                 <User className="h-4 w-4 mr-2" />
                 Sign In
               </Button>
-            </Link>
+            </Link> */}
           </div>
 
           {/* Mobile Menu Button */}
