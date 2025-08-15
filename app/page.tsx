@@ -85,7 +85,7 @@ const upcomingEvents = [
 🕖 Timing: 7:00 AM Pick up – 8:00 PM Drop off
 🚐 Pickup & Drop Point: AGEC, Amritsar
 
-🎟️ All This Fun at Just ₹1499/- Only !!
+🎟️ All This Fun at Just ₹1399/- Only !!
 🔥 Early Spot Booking: Pay just ₹450 now
 
 ✅ Includes:
