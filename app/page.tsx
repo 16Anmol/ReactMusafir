@@ -64,17 +64,9 @@ const featuredDestinations = [
 ]
 
 const upcomingEvents = [
-  {
-    id: 1,
-    title: "Technovista 2025",
-    date: "June 18-19, 2025",
-    location: "GNDU Campus",
-    image: "/card_3.jpg?height=200&width=200",
-    description: "Code, collaborate, create, innovate.",
-    registerLink: "https://docs.google.com/forms/d/e/1FAIpQLSfcejiwAc-IPRyYM89LIDoXe-ZCTj8gWvoHj1KYLHaxukx14w/viewform?usp=sharing&ouid=100832964902746238927",
-  },
+  
  {
-  id: 2,
+  id: 1,
   title: "Trip to Wonderland",
   date: "August 30, 2025",
   location: "Wonderland Water & Theme Park, Jalandhar",
@@ -321,7 +313,7 @@ export default function HomePage() {
                 )}
 
                 {/* Register Button - only show if registerLink exists */}
-                {event.registerLink && (
+             {/*   {event.registerLink && (
                   <a
                     href={event.registerLink}
                     target="_blank"
@@ -332,7 +324,7 @@ export default function HomePage() {
                       Register Now
                     </Button>
                   </a>
-                )}
+                )} */}
 
                 {/* View More Button - only show if there are details to show */}
                 {event.details && (
