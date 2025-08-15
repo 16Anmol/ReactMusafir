@@ -476,20 +476,20 @@ export default function TripsPage() {
                       <div className="flex items-center justify-between">
                         <div>
                           <div className="flex items-center gap-2">
-                            <span className="text-2xl font-bold text-amber-600">₹{trip.price.toLocaleString()}</span>
-                            {trip.originalPrice > trip.price && (
+                          {/*  <span className="text-2xl font-bold text-amber-600">₹{trip.price.toLocaleString()}</span>
+                         {trip.originalPrice > trip.price && (
                               <span className="text-sm text-gray-500 line-through">
                                 ₹{trip.originalPrice.toLocaleString()}
-                              </span>
-                            )}
+                              </span> 
+                            )}  */}
                           </div>
-                          <span className="text-xs text-amber-600">per person</span>
+                          <span className="text-md text-amber-600">Coming Soon</span>
                         </div>
-                        <Link href={`https://docs.google.com/forms/d/e/1FAIpQLSfuaVHKTPrVyDdzykMZVL6jTPD1xdgiMDmlSRoq2sGi1mcACg/viewform?usp=sharing&ouid=100832964902746238927`}>
+                        {/*<Link href={`https://docs.google.com/forms/d/e/1FAIpQLSfuaVHKTPrVyDdzykMZVL6jTPD1xdgiMDmlSRoq2sGi1mcACg/viewform?usp=sharing&ouid=100832964902746238927`}> */}
                           <Button className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white">
                             Register
                           </Button>
-                        </Link>
+                      
                       </div>
                     </CardContent>
                   </Card>
