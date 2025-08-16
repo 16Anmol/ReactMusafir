@@ -91,8 +91,8 @@ const upcomingEvents = [
 • On-Trip Coordinators
 • ₹200 Trip Coupon for Next Adventure
 
-💬 Book Now on WhatsApp: +91 60068 18177`,
-  whatsappLink: "https://wa.me/916006818177?text=Hi%20I%20came%20here%20via%20Musaffir's%20website%20and,%20I%20want%20to%20book%20my%20seat%20for%20the%20Wonderland%20trip"
+💬Book Now on WhatsApp: +91 79737 32526`,
+whatsappLink: "https://wa.me/917973732526?text=Hi%20I%20came%20here%20via%20Musaffir's%20website%20and,%20I%20want%20to%20book%20my%20seat%20for%20the%20Wonderland%20trip"
 }
 ]
 
