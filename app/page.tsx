@@ -1,7 +1,7 @@
 "use client"
 import { useState } from "react"
 import { motion } from "framer-motion"
-import { Search, Star, ArrowRight, MapPin, Calendar, Plane } from "lucide-react"
+import { Search, Star, ArrowRight, Plane } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Card, CardContent } from "@/components/ui/card"
@@ -66,33 +66,11 @@ const featuredDestinations = [
 const upcomingEvents = [
   
  {
-  id: 1,
-  title: "Trip to Wonderland",
-  date: "August 30, 2025",
-  location: "Wonderland Water & Theme Park, Jalandhar",
-  image: "/wonderland.jpg",
-  description: "Only ₹1399/- for unlimited fun!",
-  details: `📍 Location: Wonderland Water & Theme Park, Jalandhar
-📅 Date: 30th August 2025 (Saturday)
-🕖 Timing: 7:00 AM Pick up – 8:00 PM Drop off
-🚐 Pickup & Drop Point: AGEC, Amritsar
-
-🎟️ All This Fun at Just ₹1399/- Only !!
-🔥 Early Spot Booking: Pay just ₹450 now
-
-✅ Includes:
-• AC Bus Ride
-• Full-Day Access to Waterpark + Themepark
-• Unlimited Rides & Slides
-• Haunted House Thrill
-• Rain Dance Party with Live DJ
-• Club-Style DJ Bash
-• Buffet Lunch (Veg & Non-Veg)
-• On-Trip Coordinators
-• ₹200 Trip Coupon for Next Adventure
-
-💬Book Now on WhatsApp: +91 79737 32526`,
-whatsappLink: "https://wa.me/917973732526?text=Hi%20I%20came%20here%20via%20Musaffir's%20website%20and,%20I%20want%20to%20book%20my%20seat%20for%20the%20Wonderland%20trip"
+   id: 1,
+    title: "Kala Yatra 2025 Participation Certificate",
+    image: "/image.png",
+    description: "Download your participation E-Certificate for Kala Yatra 2025.",
+    link: "https://drive.google.com/your-link-here",
 }
 ]
 
@@ -259,88 +237,52 @@ export default function HomePage() {
     </motion.div>
 
     <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-      {upcomingEvents.map((event, index) => (
-        <motion.div
-          key={event.id}
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: index * 0.1 }}
-          viewport={{ once: true }}
-          whileHover={{ y: -5 }}
-          className="group"
-        >
-          <Card className="overflow-hidden border-2 border-amber-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-amber-400">
-            <div className="relative h-48 overflow-hidden">
-              <Image
-                src={event.image || "/placeholder.svg"}
-                alt={event.title}
-                fill
-                className="object-cover group-hover:scale-110 transition-transform duration-300"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-amber-900/60 to-transparent" />
+  {upcomingEvents.map((certificate, index) => (
+    <motion.div
+      key={certificate.id}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: index * 0.1 }}
+      viewport={{ once: true }}
+      whileHover={{ y: -5 }}
+      className="group"
+    >
+      <Card className="overflow-hidden border-2 border-amber-200 shadow-lg hover:shadow-2xl transition-all duration-300 hover:border-amber-400">
+        <div className="relative h-48 overflow-hidden">
+          <Image
+            src={certificate.image || "/certificate.jpg"}
+            alt={certificate.title}
+            fill
+            className="object-cover group-hover:scale-105 transition-transform duration-300"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-amber-900/60 to-transparent" />
+          <div className="absolute bottom-4 left-4 text-white">
+            <h3 className="text-lg font-semibold">{certificate.title}</h3>
+          </div>
+        </div>
 
-              <div className="absolute bottom-4 left-4 text-white">
-                <div className="flex items-center gap-2 mb-2">
-                  <Calendar className="h-4 w-4" />
-                  <span className="text-sm">{event.date}</span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <MapPin className="h-4 w-4" />
-                  <span className="text-sm">{event.location}</span>
-                </div>
-              </div>
-            </div>
+        <CardContent className="p-6 bg-gradient-to-b from-white to-amber-50">
+          <p className="text-amber-800 mb-4">
+            {certificate.description}
+          </p>
 
-            <CardContent className="p-6 bg-gradient-to-b from-white to-amber-50">
-              <h3 className="text-xl font-bold text-amber-900 mb-2">
-                {event.title}
-              </h3>
-              <p className="text-amber-700 mb-4">{event.description}</p>
-
-              <div className="flex gap-2">
-                {/* WhatsApp Button - only show if whatsappLink exists */}
-                {event.whatsappLink && (
-                  <a
-                    href={event.whatsappLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1"
-                  >
-                    <Button className="w-full bg-green-600 hover:bg-green-700 text-white">
-                      WhatsApp Now
-                    </Button>
-                  </a>
-                )}
-
-                {/* Register Button - only show if registerLink exists */}
-             {/*   {event.registerLink && (
-                  <a
-                    href={event.registerLink}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex-1"
-                  >
-                    <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
-                      Register Now
-                    </Button>
-                  </a>
-                )} */}
-
-                {/* View More Button - only show if there are details to show */}
-                {event.details && (
-                  <Button
-                    className="flex-1 bg-amber-600 hover:bg-amber-700 text-white"
-                    onClick={() => setSelectedEvent(event)}
-                  >
-                    View More
-                  </Button>
-                )}
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-      ))}
-    </div>
+          {certificate.link && (
+            <a
+              href={certificate.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1"
+            >
+              <Button className="w-full bg-amber-600 hover:bg-amber-700 text-white font-semibold">
+                Get Certificate
+              </Button>
+            </a>
+          )}
+        </CardContent>
+      </Card>
+    </motion.div>
+  ))}
+</div>
 
     {/* Modal for View More */}
     {selectedEvent && (
