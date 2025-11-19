@@ -70,7 +70,7 @@ const upcomingEvents = [
     title: "Kala Yatra 2025 Participation Certificate",
     image: "/image.png",
     description: "Download your participation E-Certificate for Kala Yatra 2025.",
-    link: "https://drive.google.com/your-link-here",
+    link: "https://drive.google.com/drive/folders/1f6YIn0-rzrUp-JOr6f7a4UdK_09vPrIt?usp=sharing",
 }
 ]
 
