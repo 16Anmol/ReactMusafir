@@ -10,7 +10,8 @@ import Image from 'next/image';
 
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "Trips", href: "/trips" },
+  
+  { name: "Kala Yatra", href: "/kala-yatra" },
   { name: "About", href: "/about" },
   { name: "Contact", href: "/contact" },
 ]
